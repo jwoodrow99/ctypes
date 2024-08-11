@@ -20,7 +20,7 @@ void vectorPrint(Vector* vector){
   printf("\n");
 }
 
-Vector* createVector(){
+Vector* vectorCreate(){
   Vector* vector = (Vector*)malloc(sizeof(Vector));
 
   vector->count = 0;
