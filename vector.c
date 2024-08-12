@@ -72,10 +72,20 @@ void vectorUnshift(Vector* vector, void* item){
 }
 
 void vectorSet(Vector* vector, int index, void* item){
+  
+  if(index >= vector->capacity){
+    return;
+  }
+
   vector->data[index] = item;
 }
 
 void vectorInsert(Vector* vector, int index, void* item){
+
+  if(index >= vector->capacity){
+    return;
+  }
+
   vector->count++;
   vector->capacity++;
 
@@ -94,6 +104,11 @@ void vectorInsert(Vector* vector, int index, void* item){
 }
 
 void vectorRemove(Vector* vector, int index){
+
+  if(index >= vector->capacity){
+    return;
+  }
+
   vector->count--;
   vector->capacity--;
 
@@ -111,7 +126,7 @@ void vectorRemove(Vector* vector, int index){
 int main(){
 
   // Create an init
-  Vector* vector = createVector();
+  Vector* vector = vectorCreate();
 
   int x1 = 10;
   vectorPush(vector, &x1);
